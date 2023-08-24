@@ -2,16 +2,13 @@
   "name": "kurdt94/yii2-isbn-validator",
   "description": "Yii2 Form Validation for ISBN-10 and ISBN-13 Identifiers",
   "keywords": [
-    "email",
-    "multiple",
+    "isbn",
     "validator",
-    "krajee",
     "yii2",
     "model",
     "validation",
-    "jquery"
   ],
-  "homepage": "https://github.com/kartik-v/yii2-email-validator",
+  "homepage": "https://github.com/kurdt94/yii2-isbn-validator",
   "type": "yii2-extension",
   "license": "BSD-3-Clause",
   "authors": [
