@@ -23,7 +23,7 @@ to the ```require``` section of your `composer.json` file.
 ## Usage
 
 This extension extends the `yii\validators\Validator` class to validate ISBN-10 or ISBN-13 identifiers.
-The `PhoneValidator` class can be easily used via the alias `k-phone` in your model validation rules. For example in your 
+The `PhoneValidator` class can be easily used via the alias `k-isbn` in your model validation rules. For example in your 
 model you can use this as shown below:
 
 ```php
