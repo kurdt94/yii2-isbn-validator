@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Yii2-isbn-validator
+ * Copyright 2023 - Erwin Graanstra
+ * https://github.com/kurdt94/yii2-isbn-validator
+ * v1.0.0
+ */
 namespace kurdt94\isbn;
 use yii;
 use yii\validators\Validator;
@@ -7,14 +12,11 @@ use yii\validators\Validator;
 class IsbnValidator extends Validator
 {
     /**
-     * Validate ISBN-10
+     * Validate ISBN-13 Checksum
      * @param $isbn
      * @return bool
      */
     private function isValidISBN10($isbn){
-        // clean Input
-        $isbn = preg_replace('/(\s+|:|-)/', '', $isbn);
-
         // Validate Lenght
         $isbn_len = strlen($isbn);
         if ($isbn_len !== 10) { return false; }
@@ -36,15 +38,11 @@ class IsbnValidator extends Validator
     }
 
     /**
-     * Erwin Graanstra
-     * Yii2 Validate ISBN-13 Checksum
+     * Validate ISBN-13 Checksum
      * @param $isbn
      * @return bool
      */
     private function IsValidISBN13($isbn){
-
-        // clean Input
-        $isbn = preg_replace('/(\s+|:|-)/', '', $isbn);
 
         // Validate Lenght
         $isbn_len = strlen($isbn);
@@ -68,13 +66,28 @@ class IsbnValidator extends Validator
      */
     public function validateAttribute($model, $attribute)
     {
-        // ISBN
+        // Input
         $input = $model->$attribute;
-        $validation = ($this->IsValidISBN10($input) || $this->IsValidISBN13($input));
+        // Clean Input
+        $isbn = preg_replace('/(\s+|:|-)/', '', $input);
+
+        $validation = ($this->IsValidISBN10($isbn) || $this->IsValidISBN13($isbn));
+
+        switch (strlen($isbn)) {
+            case 10:
+                $annotation = 'ISBN-10';
+                break;
+            case 13:
+                $annotation = 'ISBN-13';
+                break;
+            default:
+                $annotation = 'ISBN';
+        }
+        $message = Yii::t('yii','Is not a valid {isbn} identifier', ['isbn' => $annotation]);
 
         // ERROR
         if (!$validation) {
-            $this->addError($model, $attribute, '"' . $model->$attribute . '" ' . Yii::t('yii','Is not a valid ISBN-10 or ISBN-13 identifier'));
+            $this->addError($model, $attribute, '"' . $model->$attribute . '" ' . $message);
         }
     }
 
