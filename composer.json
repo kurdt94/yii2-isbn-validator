@@ -1,31 +1,29 @@
 {
-  "name": "kurdt94/yii2-isbn-validator",
-  "description": "Yii2 Form Validation for ISBN-10 and ISBN-13 Identifiers",
-  "keywords": [
-    "isbn",
-    "validator",
-    "yii2",
-    "model",
-    "validation",
-  ],
-  "homepage": "https://github.com/kurdt94/yii2-isbn-validator",
-  "type": "yii2-extension",
-  "license": "BSD-3-Clause",
-  "authors": [
-    {
-      "name": "Erwin Graanstra",
-      "email": "krdy.online@gmail.com",
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "kurdt94\\isbn\\": "src"
-    }
-  },
-  "extra": {
-    "bootstrap": "kurdt94\\isbn\\Bootstrap",
-    "branch-alias": {
-      "dev-master": "1.0.x-dev"
-    }
-  }
+	"name": "kurdt94/yii2-isbn-validator",
+	"description": "Yii2 Form Validation for ISBN-10 and ISBN-13 Identifiers",
+	"keywords": [
+		"isbn",
+		"validator",
+		"yii2",
+		"model",
+		"validation"
+	],
+	"homepage": "https://github.com/kurdt94/yii2-isbn-validator",
+	"type": "yii2-extension",
+	"license": "BSD-3-Clause",
+	"authors": [{
+		"name": "Erwin Graanstra",
+		"email": "krdy.online@gmail.com"
+	}],
+	"autoload": {
+		"psr-4": {
+			"kurdt94\\isbn\\": "src"
+		}
+	},
+	"extra": {
+		"bootstrap": "kurdt94\\isbn\\Bootstrap",
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
 }
