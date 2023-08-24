@@ -1,6 +1,6 @@
 {
-  "name": "kartik-v/yii2-validators",
-  "description": "Enhanced Yii2 model validator components / utilities for Yii2 Framework",
+  "name": "kurdt94/yii2-isbn-validator",
+  "description": "Yii2 Form Validation for ISBN-10 and ISBN-13 Identifiers",
   "keywords": [
     "email",
     "multiple",
@@ -20,10 +20,6 @@
       "email": "krdy.online@gmail.com",
     }
   ],
-  "require": {
-    "kartik-v/yii2-krajee-base": ">=2.0.0",
-    "giggsey/libphonenumber-for-php": "^8"
-  },
   "autoload": {
     "psr-4": {
       "kurdt94\\isbn\\": "src"
