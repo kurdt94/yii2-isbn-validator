@@ -50,4 +50,4 @@ echo $form->field($model, 'isbn_number', ['enableAjaxValidation' => true]);
 ```
 
 ## License
-This extension is released under the **BSD-3-Clause License**. See the bundled `LICENSE.md` for details.
+This extension is released under the **BSD-3-Clause License**. Please read `LICENSE.md` for more details.
