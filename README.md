@@ -1,6 +1,6 @@
 
 # yii2-isbn-validator
-This extension adds ISBN-10/13 Form validation to the Yii2 framework. 
+This extension adds ISBN-10 && ISBN-13 Form validation to the Yii2 framework. 
 
 ## Installation
 
