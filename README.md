@@ -35,12 +35,17 @@ class BooksModel extends ActiveRecord {
     public function rules()
     {
         return [
-            ...
+            //...
             [['isbn_number'], 'k-isbn'],
         ];
     }
 }
 ```
+## Ajax Validation
 
+Optional, but not prefered is the use of AjaxValidation. This can be aplied using the `ActiveForm enableAjaxValidation` property
+```php
+echo $form->field($model, 'isbn_number', ['enableAjaxValidation' => true]);
+```
 ## License
 This extension is released under the **BSD-3-Clause License**. See the bundled `LICENSE.md` for details.
