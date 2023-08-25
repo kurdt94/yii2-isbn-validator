@@ -3,7 +3,7 @@
  * Yii2-isbn-validator
  * Copyright 2023 - Erwin Graanstra
  * https://github.com/kurdt94/yii2-isbn-validator
- * v1.0.0
+ * v1.0.1
  */
 namespace kurdt94\isbn;
 use yii;
@@ -17,20 +17,16 @@ class IsbnValidator extends Validator
      * @return bool
      */
     private function isValidISBN10($isbn){
+
         // Validate Lenght
         $isbn_len = strlen($isbn);
         if ($isbn_len !== 10) { return false; }
 
-        // Checksum Calculation
+        // ISBN-10 Checksum Calculation
         $sum = 0;
         $multiplier = 10;
         for($i = 0; $i < ( $isbn_len); ++$i) {
-
-            if(is_numeric($isbn[$i])){
-                $sum += ($isbn[$i] - 0) * $multiplier;
-                $multiplier = $multiplier - 1;
-            }
-
+            if(is_numeric($isbn[$i])){ $sum += ($isbn[$i] - 0) * $multiplier; $multiplier--; }
             else{ return false; }
         }
 
@@ -46,10 +42,9 @@ class IsbnValidator extends Validator
 
         // Validate Lenght
         $isbn_len = strlen($isbn);
-
         if ($isbn_len !== 13) { return false; }
 
-        // Checksum Calculation
+        // ISBN-13 Checksum Calculation
         $sum = 0;
         for($i = 0; $i < $isbn_len; ++$i) {
             if(is_numeric($isbn[$i])){ $sum += ($isbn[$i] - 0) * ($i % 2 == 0 ? 1 : 3); }
@@ -66,11 +61,9 @@ class IsbnValidator extends Validator
      */
     public function validateAttribute($model, $attribute)
     {
-        // Input
-        $input = $model->$attribute;
-        // Clean Input
-        $isbn = preg_replace('/(\s+|:|-)/', '', $input);
 
+        // Clean Input
+        $isbn = preg_replace('/(\s+|:|-)/', '', $model->$attribute);
         $validation = ($this->IsValidISBN10($isbn) || $this->IsValidISBN13($isbn));
 
         switch (strlen($isbn)) {
