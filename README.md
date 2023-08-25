@@ -23,7 +23,7 @@ to the ```require``` section of your `composer.json` file.
 ## Usage
 
 This extension extends the `yii\validators\Validator` class to validate ISBN-10 or ISBN-13 identifiers.
-The `IsbnValidator` class can be applied using the alias `k-isbn` in your model rules. For example "isbn_number":
+The `IsbnValidator` class can be applied using the alias `k-isbn` in your model rules. In this example we validat the "isbn_number" field:
 
 ```php
 use yii\db\ActiveRecord;
