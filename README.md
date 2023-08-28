@@ -49,5 +49,18 @@ Prefered is the use of AjaxValidation. This can be aplied using the `ActiveForm 
 echo $form->field($model, 'isbn_number', ['enableAjaxValidation' => true]);
 ```
 
+Don't forget to set up Ajax response in your controller action. If the request `isAjax` and we can load the model
+then return `\yii\widgets\ActiveForm::validate($model)`.
+
+```php
+$model = new Books();
+
+if (Yii::$app->request->isAjax && $model->load($_POST))
+{
+    Yii::$app->response->format = 'json';
+    return \yii\widgets\ActiveForm::validate($model);
+}
+```
+
 ## License
 This extension is released under the **BSD-3-Clause License**. Please read `LICENSE.md` for more details.
