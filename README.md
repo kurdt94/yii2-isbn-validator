@@ -43,14 +43,19 @@ class BooksModel extends ActiveRecord {
 ```
 ## Ajax Validation
 
-Prefered is the use of AjaxValidation. This can be aplied using the `ActiveForm enableAjaxValidation` property.
+Prefered is the use of AjaxValidation. This can be aplied using the ActiveForm `enableAjaxValidation` property.
 
 ```php
 echo $form->field($model, 'isbn_number', ['enableAjaxValidation' => true]);
 ```
 
-Don't forget to set up Ajax response in your controller action. If the request `isAjax` and we can load the model
-then return `\yii\widgets\ActiveForm::validate($model)`.
+-- Or if you wish to enable AjaxValidation on the entire Form. --  
+
+```php
+echo $form = ActiveForm::begin(['id' => 'books-form', 'enableAjaxValidation' => true,]);
+```
+
+Don't forget to set up Ajax response in your controller-action. If the request `isAjax` and we can `load($_POST)` then return `\yii\widgets\ActiveForm::validate($model)`.
 
 ```php
 $model = new Books();
